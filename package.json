@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon -e ts,js --exec ts-node ./src/index.ts"
+    "dev": "nodemon -e ts,js --exec ts-node ./src/index.ts",
+    "start": "nodemon -e ts,js --exec ts-node ./src/index.ts"
   },
   "keywords": [],
   "author": "Arijit Chowdhury",
