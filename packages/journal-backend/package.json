@@ -12,7 +12,7 @@
     "start": "node dist/index.js",
     "watch-ts": "tsc -w",
     "watch-node": "nodemon dist/index.js",
-    "build": "tsc"
+    "build": "npx tsc"
   },
   "keywords": [],
   "author": "Arijit Chowdhury",
