@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "journal-backend": "cd packages/journal-backend && npm start",
+    "journal-frontend": "cd packages/journal-frontend && npm start"
   },
   "repository": {
     "type": "git",
