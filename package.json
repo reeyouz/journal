@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "journal-backend": "cd packages/journal-backend && npm install && npm start",
+    "journal-backend": "./scripts/backend.sh",
     "journal-frontend": "cd packages/journal-frontend && npm install && npm start"
   },
   "repository": {
