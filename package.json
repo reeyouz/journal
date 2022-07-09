@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "journal-backend": "cd packages/journal-backend && npm install --save-dev && npm start",
+    "journal-backend": "cd packages/journal-backend && npm run heroku && npm start",
     "journal-frontend": "cd packages/journal-frontend && npm install && npm start"
   },
+  "workspaces": [
+    "packages/journal-backend",
+    "packages/journal-frontend"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/reeyouz/journal.git"
