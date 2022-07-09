@@ -41,6 +41,20 @@ export class Property {
       : false;
   }
 
+  static LengthLesserThanRaw(data: string, min_length: number) {
+    return data.length < min_length;
+  }
+
+  static LengthLesserThan<Success>(
+    property: string,
+    min_length: number,
+    data: string
+  ): false | Either<Success, PropertyError> {
+    return Property.LengthLesserThanRaw(data, min_length)
+      ? failure({ property, message: Property.MaxLength(property, min_length) })
+      : false;
+  }
+
   static IsNotADate<Success>(
     property: string,
     data: any
@@ -67,6 +81,10 @@ export class Property {
 
   static MaxLength(property: string, numberOfCharacters: number) {
     return `'${property}' cannot exceed ${numberOfCharacters} characters!`;
+  }
+
+  static MinLength(property: string, numberOfCharacters: number) {
+    return `'${property}' needs at least ${numberOfCharacters} character(s)!`;
   }
 }
 

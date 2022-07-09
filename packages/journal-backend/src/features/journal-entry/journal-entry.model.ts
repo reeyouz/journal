@@ -66,6 +66,7 @@ export class JournalEntry extends BaseModel implements IJournalEntry {
 }
 
 export class Content {
+  private static readonly MIN_CHAR = 5;
   private static readonly MAX_CHAR = 200;
 
   data: string;
@@ -78,6 +79,7 @@ export class Content {
     return (
       Property.IsEmpty(Content.name, data) ||
       Property.IsNotAString(Content.name, data) ||
+      Property.LengthLesserThan(Content.name, Content.MIN_CHAR, data) ||
       Property.LengthGreaterThan(Content.name, Content.MAX_CHAR, data) ||
       success(new Content(data))
     );
