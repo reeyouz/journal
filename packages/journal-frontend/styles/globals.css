@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif;
+}
+
+textarea {
+  border: none;
+  resize: none;
+}
+
+textarea:focus-visible {
+  outline: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+:root {
+  --white: rgb(255, 255, 255);
+  --blue: rgb(21, 16, 90);
+  --green: rgb(49, 190, 125);
+  --red: rgb(212, 51, 51);
+  --shadow: rgba(124, 124, 124, 0.568);
+  --light-red: rgb(212, 97, 97);
+}
+
+.bg-loading {
+  background-color: var(--white);
+}
+
+.bg-info {
+  background-color: var(--blue);
+}
+
+.bg-success {
+  background-color: var(--green);
+}
+
+.bg-error {
+  background-color: var(--red);
+}
+
+.spinner {
+  min-height: 25px;
+  min-width: 25px;
+
+  border-style: solid;
+  border-radius: 50%;
+  border-color: transparent;
+  border-width: 5px;
+  border-top-color: var(--blue);
+
+  animation-name: spinner-animation;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spinner-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(720deg);
+  }
+}
