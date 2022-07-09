@@ -31,7 +31,7 @@ export function useHomeForm(
 
     try {
       await axios.post<void, void, IJournalEntry>(
-        "http://localhost:5000/journal-entries",
+        `${process.env.NEXT_PUBLIC_JOURNAL_API_BASEURL}/journal-entries`,
         {
           content,
           createdOn: new Date(),

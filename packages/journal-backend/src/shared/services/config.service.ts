@@ -72,13 +72,11 @@ export class ConfigService {
 
   private getAllowedOrigins(): string | string[] | undefined {
     let ALLOWED_ORIGINS = process.env["ALLOWED_ORIGINS"];
-    // console.log(ALLOWED_ORIGINS);
     if (typeof ALLOWED_ORIGINS === "string") {
       try {
         ALLOWED_ORIGINS = JSON.parse(ALLOWED_ORIGINS);
       } catch (error) {}
     }
-    // console.log(ALLOWED_ORIGINS);
     return ALLOWED_ORIGINS;
   }
 }
