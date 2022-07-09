@@ -12,7 +12,9 @@
     "start": "node dist/index.js",
     "watch-ts": "tsc -w",
     "watch-node": "nodemon dist/index.js",
-    "build": "tsc"
+    "build": "tsc",
+    "heroku": "npm install --save-dev",
+    "postinstall": "tsc"
   },
   "keywords": [],
   "author": "Arijit Chowdhury",
