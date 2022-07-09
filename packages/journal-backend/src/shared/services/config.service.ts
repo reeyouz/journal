@@ -3,6 +3,7 @@ import { DEV, TEST, PROD, Environment } from "..";
 export class ConfigService {
   private _NODE_ENV: Environment;
   private _APP_PORT: number;
+  private _ALLOWED_ORIGINS: string | string[] | undefined;
   private _isProd: boolean;
   private _isTest: boolean;
 
@@ -24,6 +25,10 @@ export class ConfigService {
     return process.env["JWT_TOKEN"]!;
   }
 
+  get ALLOWED_ORIGINS() {
+    return this._ALLOWED_ORIGINS;
+  }
+
   get isProd() {
     return this._isProd;
   }
@@ -35,6 +40,7 @@ export class ConfigService {
   private constructor() {
     this._NODE_ENV = this.getEnvironment();
     this._APP_PORT = this.getAppPort();
+    this._ALLOWED_ORIGINS = this.getAllowedOrigins();
     this._isProd = this._NODE_ENV === PROD;
     this._isTest = this._NODE_ENV === TEST;
   }
@@ -62,5 +68,17 @@ export class ConfigService {
       PORT = "3000";
     }
     return Number(PORT);
+  }
+
+  private getAllowedOrigins(): string | string[] | undefined {
+    let ALLOWED_ORIGINS = process.env["ALLOWED_ORIGINS"];
+    // console.log(ALLOWED_ORIGINS);
+    if (typeof ALLOWED_ORIGINS === "string") {
+      try {
+        ALLOWED_ORIGINS = JSON.parse(ALLOWED_ORIGINS);
+      } catch (error) {}
+    }
+    // console.log(ALLOWED_ORIGINS);
+    return ALLOWED_ORIGINS;
   }
 }

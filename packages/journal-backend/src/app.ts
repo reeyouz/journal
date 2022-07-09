@@ -26,9 +26,13 @@ export class Application {
 
   setupMiddlewares() {
     this._app.use(helmet());
-    if (!this.configService.isProd) {
-      this._app.use(cors());
-    }
+    this._app.use(
+      this.configService.isProd
+        ? cors({
+            origin: this.configService.ALLOWED_ORIGINS,
+          })
+        : cors()
+    );
     this._app.use(express.json());
     this._app.use(express.urlencoded({ extended: true }));
     this._app.use(this.requestLogger.bind(this));

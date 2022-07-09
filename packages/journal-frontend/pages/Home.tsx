@@ -4,7 +4,7 @@ import { Button, ProtectedIcon } from "../components";
 import { useHomeForm } from "../hooks";
 import styles from "../styles/Home.module.css";
 
-export const Home: NextPage = () => {
+const Home: NextPage = () => {
   const { state, onContentChange, createJournalEntry } = useHomeForm();
 
   const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
@@ -46,3 +46,5 @@ export const Home: NextPage = () => {
     </form>
   );
 };
+
+export default Home;

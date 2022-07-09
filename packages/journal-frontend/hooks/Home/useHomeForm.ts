@@ -31,7 +31,7 @@ export function useHomeForm(
 
     try {
       await axios.post<void, void, IJournalEntry>(
-        "https://damp-tundra-10115.herokuapp.com/journal-entries",
+        "http://localhost:5000/journal-entries",
         {
           content,
           createdOn: new Date(),
