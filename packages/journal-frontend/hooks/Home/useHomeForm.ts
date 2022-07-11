@@ -29,6 +29,7 @@ export function useHomeForm(
     setFormDisabledStatus(true);
     setDataFetchingStatus(LOADING);
 
+    let isSucceeded = false;
     try {
       await axios.post<void, void, IJournalEntry>(
         `${process.env.NEXT_PUBLIC_JOURNAL_API_BASEURL}/journal-entries`,
@@ -37,19 +38,22 @@ export function useHomeForm(
           createdOn: new Date(),
         },
         {
-          timeout: 5000,
+          timeout: 10000,
         }
       );
+      isSucceeded = true;
       setDataFetchingStatus(SUCCESS);
     } catch (error) {
       setDataFetchingStatus(ERROR);
-    } finally {
-      setTimeout(() => {
-        setContent(initialContent);
-        setDataFetchingStatus(initialDataFetchingStatus);
-        setFormDisabledStatus(initialFormDisabledState);
-      }, 2000);
     }
+
+    setTimeout(() => {
+      if (isSucceeded === true) {
+        setContent(initialContent);
+      }
+      setDataFetchingStatus(initialDataFetchingStatus);
+      setFormDisabledStatus(initialFormDisabledState);
+    }, 2000);
   };
 
   const onContentChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {

@@ -12,7 +12,6 @@
   .journal-form header,
   .journal-form button {
     display: flex;
-    align-items: center;
 
     height: 60px;
 
@@ -31,31 +30,41 @@
     box-shadow: 0 5px 5px var(--shadow);
   }
 
-  .journal-form header div:first-child {
-    width: 75%;
-    padding-left: 5%;
-    font-size: 25px;
+  .journal-form header .block {
+    position: absolute;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .journal-form header .text-only {
+    position: absolute;
+
+    width: 100vw;
+    height: 100%;
 
     display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 
-  .journal-form header div:first-child > * {
-    margin: 0 4px;
+  .journal-form header .positive {
+    background-color: var(--white);
+    left: 0;
   }
 
-  .journal-form header div:last-child {
-    width: 25%;
-    text-align: center;
+  .journal-form header .positive .text-only {
+    color: var(--blue);
+    left: 0;
   }
 
-  .journal-form header div:last-child span {
-    font-family: "Roboto", sans-serif;
-    font-size: 1.2em;
-    color: var(--light-red);
+  .journal-form header .negative {
+    background-color: var(--blue);
+    right: 0;
+  }
 
-    padding: 5px;
-
-    border: 2px solid var(--red);
+  .journal-form header .negative .text-only {
+    color: var(--white);
+    right: 0;
   }
 
   .journal-form textarea {
@@ -86,6 +95,7 @@
   .journal-form button {
     bottom: 0;
 
+    align-items: center;
     justify-content: center;
 
     box-shadow: 0 -5px 5px var(--shadow);
@@ -93,5 +103,25 @@
 
   .journal-form button:hover {
     cursor: pointer;
+  }
+}
+
+.animate-expand {
+  animation: expand 2s ease-in-out 0s 1 normal forwards;
+}
+
+.animate-contract {
+  animation: contract 2s ease-in-out 0s 1 normal forwards;
+}
+
+@keyframes expand {
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes contract {
+  100% {
+    width: 0%;
   }
 }

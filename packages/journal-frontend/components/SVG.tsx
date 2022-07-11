@@ -2,6 +2,7 @@ import { NextPage } from "next";
 
 interface IconProps {
   dimension: string;
+  fill?: string;
 }
 export const SubmitIcon: NextPage<IconProps> = (props) => {
   return (
@@ -70,7 +71,7 @@ export const ProtectedIcon: NextPage<IconProps> = (props) => {
       xmlns="http://www.w3.org/2000/svg"
       width={props.dimension}
       height={props.dimension}
-      fill="var(--blue)"
+      fill={props.fill}
       viewBox="0 0 470 470"
     >
       <path
