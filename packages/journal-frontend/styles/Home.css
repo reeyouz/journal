@@ -32,8 +32,12 @@
 
   .journal-form header .block {
     position: absolute;
+
     height: 100%;
+
     overflow: hidden;
+
+    transition: width 0.5s linear;
   }
 
   .journal-form header .text-only {
